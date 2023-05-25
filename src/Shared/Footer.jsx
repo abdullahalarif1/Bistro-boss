@@ -1,8 +1,12 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Footer = () => {
   return (
     <>
+      <Helmet>
+        <title>Bistro Boss | Footer</title>
+      </Helmet>
       <footer className="footer p-10 mt-20 bg-neutral text-neutral-content">
         <div>
           <svg

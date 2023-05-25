@@ -5,7 +5,7 @@ import featuredImg from "../../assets/home/featured.jpg";
 const Featured = () => {
   return (
     <div
-      className=" bg-fixed"
+      className="bg-fixed"
       style={{ backgroundImage: `url(${featuredImg})` }}
     >
       <div className="bg-slate-500 bg-opacity-40 pt-10">

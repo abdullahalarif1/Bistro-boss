@@ -8,16 +8,19 @@ const Header = () => {
         <Link to={"/"}>Home</Link>
       </li>
       <li>
-        <Link>Home</Link>
+        <Link to="/menu">Our Menu</Link>
       </li>
       <li>
-        <Link>Home</Link>
+        <Link to="/order/salad">Order</Link>
+      </li>
+      <li>
+        <Link to="/login">Login</Link>
       </li>
     </>
   );
 
   return (
-    <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-lg text-white bg-base-100">
+    <div className="navbar fixed z-10 bg-slate-600 bg-opacity-30 max-w-screen-lg text-white ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -38,7 +41,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52 bg-slate-800"
           >
             {navOptions}
           </ul>

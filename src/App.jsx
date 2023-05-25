@@ -1,14 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import "./App.css";
 import Footer from "./Shared/Footer";
 import Header from "./Shared/Header";
 
 function App() {
+  const location = useLocation();
+  console.log(location);
+
+  const noHeaderFooter = location.pathname.includes("/login");
+
   return (
     <>
-      <Header></Header>
+      {noHeaderFooter ? "" : <Header></Header>}
       <Outlet></Outlet>
-      <Footer></Footer>
+      {noHeaderFooter ? "" : <Footer></Footer>}
     </>
   );
 }
