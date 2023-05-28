@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthProvider } from "../Pages/Providers/AuthContext";
+import { BsFillCartDashFill } from "react-icons/bs";
+import useCart from "../hooks/useCart";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthProvider);
+  const [cart] = useCart();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   const navOptions = (
     <>
       <li>
@@ -14,8 +27,23 @@ const Header = () => {
         <Link to="/order/salad">Order</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/">
+          <button className="btn gap-2">
+            <BsFillCartDashFill />
+            <div className="badge badge-secondary ">+{cart?.length}</div>
+          </button>
+        </Link>
       </li>
+
+      {user ? (
+        <button onClick={handleLogOut}>
+          <Link>Logout</Link>
+        </button>
+      ) : (
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      )}
     </>
   );
 
