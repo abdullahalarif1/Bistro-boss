@@ -9,13 +9,13 @@ function App() {
 
   const noHeaderFooter =
     location.pathname.includes("/login") ||
-    location.pathname.includes("/signup");
+    location.pathname.includes("/signUp");
 
   return (
     <>
-      {noHeaderFooter ? "" : <Header></Header>}
+      {!noHeaderFooter && <Header></Header>}
       <Outlet></Outlet>
-      {noHeaderFooter ? "" : <Footer></Footer>}
+      {!noHeaderFooter && <Footer></Footer>}
     </>
   );
 }
